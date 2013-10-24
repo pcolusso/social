@@ -34,6 +34,14 @@ public class Users implements Serializable {
 		return null;
 	}
 	
+	public User getUser(String email)
+	{
+		for (User u : users)
+			if (u.getEmail().equals(email))
+				return u;
+		return null;
+	}
+	
 	public void addTestUser(String name)
 	{
 		User u = new User(1, name, name + "@test,com", "desc", "pass");

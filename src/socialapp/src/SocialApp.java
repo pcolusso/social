@@ -32,11 +32,12 @@ public class SocialApp {
 	
 	public void save() throws IOException, JAXBException
 	{	 
-		JAXBContext jc = JAXBContext.newInstance(Users.class);
-		Marshaller m = jc.createMarshaller();
+		//TODO: Fix me!
+		//JAXBContext jc = JAXBContext.newInstance(Users.class);
+		//Marshaller m = jc.createMarshaller();
 		
-		FileOutputStream fout = new FileOutputStream(filePath);
-		m.marshal(users, fout);
-		fout.close();
+		//FileOutputStream fout = new FileOutputStream(filePath);
+		//m.marshal(users, fout);
+		//fout.close();
 	}
 }

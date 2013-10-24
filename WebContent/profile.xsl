@@ -17,12 +17,17 @@
 	
 	<xsl:template match="blog">
 		<h1>Your Blog Articles</h1>
+		<a href="newBlogPost.jsp">New Post...</a>
 		<div><xsl:apply-templates select="article" /></div>
 	</xsl:template>
 	
 	<xsl:template match="article">
 		<h2><xsl:value-of select="@title" /></h2>
 		<i>Published <xsl:value-of select="@date" /></i>
+		<a>
+			<xsl:attribute name="href">editPost.jsp?<xsl:value-of select="@title" /></xsl:attribute>
+			Edit..
+		</a>
 		<p><xsl:value-of select="." /></p>
 	</xsl:template>
 	
