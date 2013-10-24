@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<socialnetwork>
+    <users>
+        <user id="1">
+            <name>Paul</name>
+            <email>paul@test.com</email>
+            <description>desc</description>
+            <password>pass</password>
+            <articles>
+                <article>
+                    <title>test1</title>
+                    <date>12/09/2013</date>
+                    <content>ddfsdfsdfsdfds</content>
+                </article>
+                <article>
+                    <title>test2</title>
+                    <date>13/09/2013</date>
+                    <content>fsfsdfdsfs</content>
+                </article>
+                <article>
+                    <title>test3</title>
+                    <date>14/09/2013</date>
+                    <content>asdsdsadsa</content>
+                </article>
+            </articles>
+            <friends>
+                <friend userId="1" accepted="false"/>
+            </friends>
+        </user>
+    </users>
+</socialnetwork>
