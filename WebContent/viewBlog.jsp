@@ -23,6 +23,6 @@
 <article>
 	<title><%=article.getTitle() %></title>
 	<date><%=article.getPublishedDate() %></date>
-	<content><%=article.getContent() %>
+	<content><%=article.getContent() %></content>
 </article>
 <% } %>

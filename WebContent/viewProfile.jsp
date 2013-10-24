@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/xml; charset=UTF-8"
     pageEncoding="UTF-8" import="socialapp.src.*;import java.util.List"%><?xml version="1.0" encoding="UTF-8"?>
 
+<?xml-stylesheet href="viewProfile.xsl" type="text/xsl" ?>
+
 <jsp:useBean id="app" class="socialapp.src.SocialApp" scope="session" />
 
 <%
