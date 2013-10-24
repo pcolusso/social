@@ -28,8 +28,8 @@
 	
 	<xsl:template match="user">
 		<h1>Welcome, <xsl:value-of select="name" />!</h1>
-		<u><xsl:value-of select="desc" /></u>
-		<a href="edit.jsp">edit</a>|<a href="logout.jsp">logout</a>
+		<u><xsl:value-of select="desc" /></u><br />
+		<a href="editProfile.jsp">edit</a>|<a href="logout.jsp">logout</a>
 	</xsl:template>
 	
 	<xsl:template match="friends">

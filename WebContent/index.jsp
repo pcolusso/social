@@ -16,9 +16,13 @@
 </head>
 <body>
 <%
-	User user = app.getUsers().logon("paul@test.com", "pass");
-	session.setAttribute("user", user);
-	response.sendRedirect("/social/profile.jsp");
+	User u = (User)session.getAttribute("user");
+	if (u == null) {
+		%> <p>Not logged in. <a href="login.jsp">login</a></p> <%
+	}
+	else {
+		response.sendRedirect("profile.jsp");
+	}
 %>
 </body>
 </html>
