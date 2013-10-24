@@ -77,6 +77,14 @@ public class User {
 	public List<Article> getBlog() {
 		return blog;
 	}
+	
+	public Article getArticle(String title) {
+		for (Article a : blog)
+			if (a.getTitle().equalsIgnoreCase(title))
+				return a;
+		return null;
+	}
+	
 	public void setBlog(List<Article> blog) {
 		this.blog = blog;
 	}

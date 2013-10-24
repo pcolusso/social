@@ -1,26 +1,32 @@
 <%@ page language="java" contentType="text/xml; charset=UTF-8"
     pageEncoding="UTF-8" import="socialapp.src.*;import java.util.List"%><?xml version="1.0" encoding="UTF-8"?>
 
-<jsp:useBean id="user" class="socialapp.src.User" scope="session" />
 <jsp:useBean id="app" class="socialapp.src.SocialApp" scope="session" />
 
-<% if (user.getName() == null) { %>
+<%
+	int userId = Integer.parseInt(request.getParameter("id"));
+	User user = app.getUsers().getUser(userId);
+%>
+
+<% if (user == null) { %>
 <error>
-	<message>You are not logged in</message>
+	<message>Not a valid user ID</message>
 </error>
 <% } else { %>
 
 <profile>
 	<user>
-		<name><jsp:getProperty name="user" property="name" /></name>
-		<email><jsp:getProperty name="user" property="email" /></email>
-		<desc><jsp:getProperty name="user" property="description" /></desc>
+		<name><%=user.getName()%></name>
+		<email><%=user.getEmail()%></email>
+		<desc><%=user.getDescription()%></desc>
 	</user>
 	<friends>
 		<% for (Friend friend : user.getFriends()) { %>
+			<% if (friend.isAccepted()) { %>
 			<friend name="<%=app.getUsers().getUser(friend.getUserId()).getName()%>">
 				<accepted><%=friend.isAccepted()%></accepted>
 			</friend>
+			<% } %>
 		<% } %>
 	</friends>
 	<blog>

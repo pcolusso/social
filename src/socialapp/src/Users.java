@@ -26,6 +26,14 @@ public class Users implements Serializable {
 		this.users = users;
 	}
 	
+	public User getUser(int id)
+	{
+		for (User u : users)
+			if (u.getId() == id)
+				return u;
+		return null;
+	}
+	
 	public void addTestUser(String name)
 	{
 		User u = new User(1, name, name + "@test,com", "desc", "pass");
