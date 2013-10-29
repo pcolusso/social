@@ -19,6 +19,12 @@ public class Friend {
 		accepted = false;
 	}
 	
+	public Friend(int id, boolean accepted)
+	{
+		this.userId = id;
+		this.accepted = accepted;
+	}
+	
 	public int getUserId() {
 		return userId;
 	}

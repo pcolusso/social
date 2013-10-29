@@ -25,6 +25,7 @@
             </articles>
             <friends>
                 <friend userId="1" accepted="true"/>
+                <friend userId="2" accepted="true"/>
             </friends>
         </user>
         <user id="2">

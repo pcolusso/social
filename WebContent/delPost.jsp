@@ -13,6 +13,6 @@
 
 <form>
 	<title>Delete Post?</title>
-	<field type="hidden" label="post"><%=article.getTitle() %></field>
+	<field type="hidden" name="post"><%=article.getTitle() %></field>
 	<button label="Delete">completeDelPost.jsp</button>
 </form>

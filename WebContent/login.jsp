@@ -7,7 +7,7 @@
 
 <form>
 	<title>Login</title>
-	<field type="text" label="email">paul@test.com</field>
-	<field type="password" label="password">pass</field>
+	<field type="text" name="email" label="email">paul@test.com</field>
+	<field type="password" name="password" label="password">pass</field>
 	<button label="login">completeLogin.jsp</button>
 </form>

@@ -94,4 +94,25 @@ public class User {
 	public void setFriends(List<Friend> friends) {
 		this.friends = friends;
 	}
+	
+	public Friend getFriend(int id) {
+		for (Friend f : friends)
+			if (f.getUserId() == id)
+				return f;
+		return null;
+	}
+	
+	public void removeFriend(int id) {
+		Friend toRemove = getFriend(id);
+		
+		friends.remove(toRemove);
+	}
+	
+	public void addFriend(int id) {
+		friends.add(new Friend(id, true));
+	}
+	
+	public void addFriendRequest(int id) {
+		friends.add(new Friend(id, false));
+	}
 }

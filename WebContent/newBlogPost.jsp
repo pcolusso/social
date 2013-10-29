@@ -7,8 +7,8 @@
 
 <form>
 	<title>New Blog Post</title>
-	<field type="text" label="title"></field>
-	<field type="text" label="date">24/10/2013</field>
-	<field type="text" label="post"></field>
+	<field type="text" name="title" label="title"></field>
+	<field type="text" name="date" label="date">24/10/2013</field>
+	<field type="textarea" name="date" label="post"></field>
 	<button label="Post">completeNewBlogPost.jsp</button>
 </form>

@@ -53,4 +53,22 @@ public class SocialApp {
 		}
 		return null;
 	}
+	
+	public boolean isFriends(int u1, int u2) {
+		User a = users.getUser(u1);
+		User b = users.getUser(u2);
+		
+		if (a == null || b == null)
+			return false;
+		
+		Friend aB = a.getFriend(b.getId());
+		Friend bA = b.getFriend(a.getId());
+		
+		if (aB == null || bA == null)
+			return false;
+		
+		if (!aB.isAccepted() || !bA.isAccepted())
+			return false;
+		return true;
+	}
 }

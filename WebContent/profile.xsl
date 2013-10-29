@@ -24,15 +24,15 @@
 	<xsl:template match="article">
 		<h2><xsl:value-of select="@title" /></h2>
 		<i>Published <xsl:value-of select="@date" /></i>
-		<xsl:apply-templates select="editArticle" />
-		<xsl:apply-templates select="viewArticle" />
-		<xsl:apply-templates select="delArticle" />
+		<xsl:apply-templates select="editArticle" />| 
+		<xsl:apply-templates select="viewArticle" />|
+		<xsl:apply-templates select="delArticle" />|
 	</xsl:template>
 	 
 	<xsl:template match="editArticle">
 		<a>
 			<xsl:attribute name="href">editPost.jsp?title=<xsl:value-of select="@title" /></xsl:attribute>
-			Edit..
+			Edit
 		</a>
 	</xsl:template>
 	
@@ -41,7 +41,7 @@
 			<xsl:attribute name="href">
 				viewPost.jsp?title=<xsl:value-of select="@title" />&amp;userId=<xsl:value-of select="@userId" />
 			</xsl:attribute>
-			View..
+			View
 		</a>
 	</xsl:template>
 	
@@ -50,7 +50,7 @@
 			<xsl:attribute name="href">
 				delPost.jsp?title=<xsl:value-of select="@title" />
 			</xsl:attribute>
-			Delete..
+			Delete
 		</a>
 	</xsl:template>
 	
@@ -62,10 +62,21 @@
 	
 	<xsl:template match="friends">
 		<h1>Your Friends</h1>
+		<a href="addFriend.jsp">Add Friends</a><br />
 		<xsl:apply-templates select="friend" />
 	</xsl:template>
 	
 	<xsl:template match="friend">
 		<b><xsl:value-of select="@name" /></b>
+		<xsl:if test="contains(accepted, 'false')">
+			<i> - pending</i>
+		</xsl:if>
+		<a>
+			<xsl:attribute name="href">
+				delFriend.jsp?id=<xsl:value-of select="@id" />
+			</xsl:attribute>
+			Remove
+		</a>
+		<br />
 	</xsl:template>
 </xsl:stylesheet>

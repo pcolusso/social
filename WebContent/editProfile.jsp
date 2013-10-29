@@ -7,9 +7,9 @@
 
 <form>
 	<title>Edit Your Profile</title>
-	<field type="text" label="name"><%=user.getName()%></field>
-	<field type="text" label="email"><%=user.getEmail()%></field>
-	<field type="text" label="password"><%=user.getPassword()%></field>
-	<field type="text" label="description"><%=user.getDescription()%></field>
+	<field type="text" name="name" label="name"><%=user.getName()%></field>
+	<field type="text" name="email" label="email"><%=user.getEmail()%></field>
+	<field type="text" name="password" label="password"><%=user.getPassword()%></field>
+	<field type="text" name="description" label="description"><%=user.getDescription()%></field>
 	<button label="save">completeEditProfile.jsp</button>
 </form>

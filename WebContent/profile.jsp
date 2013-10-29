@@ -20,8 +20,8 @@
 	</user>
 	<friends>
 		<% for (Friend friend : user.getFriends()) { %>
-			<friend name="<%=app.getUsers().getUser(friend.getUserId()).getName()%>">
-				<accepted><%=friend.isAccepted()%></accepted>
+			<friend name="<%=app.getUsers().getUser(friend.getUserId()).getName()%>" id="<%=friend.getUserId()%>">
+				<accepted><%=app.isFriends(user.getId(), friend.getUserId()) %></accepted>
 			</friend>
 		<% } %>
 	</friends>

@@ -12,6 +12,9 @@
 	
 	Article a = user.getArticle(oldTitle);
 	
+    System.out.println(user);
+    System.out.println(a);
+	
 	a.setTitle(title);
 	a.setContent(post);
 	a.setPublishedDate(date);

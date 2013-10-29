@@ -9,14 +9,13 @@
 <% 
         String title = request.getParameter("title");
         Article article = user.getArticle(title);
-        
 %>
 
 <form>
         <title>Edit Blog Post</title>
-        <field type="hidden" label="oldTitle"><%=article.getTitle() %></field>
-        <field type="text" label="title"><%=article.getTitle() %></field>
-        <field type="text" label="date"><%=article.getPublishedDate() %></field>
-        <field type="text" label="post"><%=article.getContent() %></field>
+        <field type="hidden" name="oldTitle"><%=article.getTitle() %></field>
+        <field type="text" name="title" label="title"><%=article.getTitle() %></field>
+        <field type="text" name="date" label="date"><%=article.getPublishedDate() %></field>
+        <field type="textarea" name="post" label="post"><%=article.getContent() %></field>
         <button label="Post">completeEditPost.jsp</button>
 </form>
