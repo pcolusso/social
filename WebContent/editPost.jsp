@@ -7,16 +7,16 @@
 <jsp:useBean id="user" class="socialapp.src.User" scope="session" />
 
 <% 
-	String title = request.getParameter("title");
-	Article article = user.getArticle(title);
-	System.out.println(title); 
-	
+        String title = request.getParameter("title");
+        Article article = user.getArticle(title);
+        
 %>
 
 <form>
-	<title>Edit Blog Post</title>
-	<field type="text" label="title"><%=article.getTitle() %></field>
-	<field type="text" label="date"><%=article.getPublishedDate() %></field>
-	<field type="text" label="post"><%=article.getContent() %></field>
-	<button label="Post">completeNewBlogPost.jsp</button>
+        <title>Edit Blog Post</title>
+        <field type="hidden" label="oldTitle"><%=article.getTitle() %></field>
+        <field type="text" label="title"><%=article.getTitle() %></field>
+        <field type="text" label="date"><%=article.getPublishedDate() %></field>
+        <field type="text" label="post"><%=article.getContent() %></field>
+        <button label="Post">completeEditPost.jsp</button>
 </form>

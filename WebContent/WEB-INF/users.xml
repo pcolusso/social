@@ -24,7 +24,35 @@
                 </article>
             </articles>
             <friends>
-                <friend userId="1" accepted="false"/>
+                <friend userId="1" accepted="true"/>
+            </friends>
+        </user>
+        <user id="2">
+            <name>Bob</name>
+            <email>bob@test.com</email>
+            <description>desc</description>
+            <password>pass</password>
+            <articles>
+            	<article>
+                    <title>test3</title>
+                    <date>14/09/2013</date>
+                    <content>asdsdsadsa</content>
+                </article>
+            </articles>
+            <friends>
+                <friend userId="1" accepted="true"/>
+                <friend userId="3" accepted="true"/>
+            </friends>
+        </user>
+        <user id="3">
+            <name>Walter</name>
+            <email>ww@test.com</email>
+            <description>desc</description>
+            <password>pass</password>
+            <articles>
+            </articles>
+            <friends>
+                <friend userId="2" accepted="false"/>
             </friends>
         </user>
     </users>

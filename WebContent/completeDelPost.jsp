@@ -5,16 +5,11 @@
 <jsp:useBean id="user" class="socialapp.src.User" scope="session" />
 
 <%
-	String oldTitle = request.getParameter("oldTitle");
-	String title = request.getParameter("title");
-	String date = request.getParameter("date");
-	String post = request.getParameter("post");
+
+	String title = request.getParameter("post");
+
 	
-	Article a = user.getArticle(oldTitle);
-	
-	a.setTitle(title);
-	a.setContent(post);
-	a.setPublishedDate(date);
+	user.getBlog().remove(user.getArticle(title));
 	
 	app.save();
 	response.sendRedirect("/social/profile.jsp");

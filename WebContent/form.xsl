@@ -5,7 +5,7 @@
 		<html>
 			<body>
 				<h1><xsl:value-of select="title" /></h1>
-				<form method="GET">
+				<form method="POST">
 					<xsl:attribute name="action">
 						<xsl:value-of select="button" />
 					</xsl:attribute>
@@ -21,7 +21,9 @@
 	</xsl:template>
 	
 	<xsl:template match="field">
-		<xsl:value-of select="@label" />
+		<xsl:if test="not(contains(@type, 'hidden'))">
+			<xsl:value-of select="@label" />
+		</xsl:if>
 		<input>
 			<xsl:attribute name="type"><xsl:value-of select="@type" /></xsl:attribute>
 			<xsl:attribute name="name"><xsl:value-of select="@label"></xsl:value-of></xsl:attribute>

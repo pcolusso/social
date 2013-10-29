@@ -24,11 +24,34 @@
 	<xsl:template match="article">
 		<h2><xsl:value-of select="@title" /></h2>
 		<i>Published <xsl:value-of select="@date" /></i>
+		<xsl:apply-templates select="editArticle" />
+		<xsl:apply-templates select="viewArticle" />
+		<xsl:apply-templates select="delArticle" />
+	</xsl:template>
+	 
+	<xsl:template match="editArticle">
 		<a>
-			<xsl:attribute name="href">editPost.jsp?<xsl:value-of select="@title" /></xsl:attribute>
+			<xsl:attribute name="href">editPost.jsp?title=<xsl:value-of select="@title" /></xsl:attribute>
 			Edit..
 		</a>
-		<p><xsl:value-of select="." /></p>
+	</xsl:template>
+	
+	<xsl:template match="viewArticle">
+		<a>
+			<xsl:attribute name="href">
+				viewPost.jsp?title=<xsl:value-of select="@title" />&amp;userId=<xsl:value-of select="@userId" />
+			</xsl:attribute>
+			View..
+		</a>
+	</xsl:template>
+	
+	<xsl:template match="delArticle">
+		<a>
+			<xsl:attribute name="href">
+				delPost.jsp?title=<xsl:value-of select="@title" />
+			</xsl:attribute>
+			Delete..
+		</a>
 	</xsl:template>
 	
 	<xsl:template match="user">
