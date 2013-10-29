@@ -40,4 +40,17 @@ public class SocialApp {
 		//m.marshal(users, fout);
 		//fout.close();
 	}
+	
+	public Article getArticle(int userId, String title) {
+		for (User u : users.getUsers()) {
+			if (u.getId() == userId) {
+				for (Article a : u.getBlog()) {
+					if (a.getTitle().equals(title)) {
+						return a;
+					}
+				}
+			}
+		}
+		return null;
+	}
 }

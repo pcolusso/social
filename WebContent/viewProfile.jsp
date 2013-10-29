@@ -35,6 +35,7 @@
 		<% for (Article article : user.getBlog()) { %>
 			<article title="<%=article.getTitle()%>" date="<%=article.getPublishedDate()%>">
 				<%=article.getContent()%>
+				<articleLink userId="<%=user.getId()%>" title="<%=article.getTitle()%>" />
 			</article>
 		<% } %>
 	</blog>

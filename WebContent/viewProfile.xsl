@@ -12,6 +12,17 @@
 		</html>
 	</xsl:template>
 	
+	<xsl:template match="/articleView">
+		<html>
+			<head>
+				<title><xsl:value-of select="article/@title" /></title>
+			</head>
+			<body>
+				<xsl:apply-templates select="article" />
+			</body>
+		</html>
+	</xsl:template>
+	
 	<xsl:template match="blog">
 		<h1>Blog</h1>
 		<div><xsl:apply-templates select="article" /></div>
@@ -21,6 +32,16 @@
 		<h2><xsl:value-of select="@title" /></h2>
 		<i>Published <xsl:value-of select="@date" /></i>
 		<p><xsl:value-of select="." /></p>
+		<xsl:apply-templates select="articleLink" />
+	</xsl:template>
+	
+	<xsl:template match="articleLink">
+		<a>
+			<xsl:attribute name="href">
+				viewPost.jsp?title=<xsl:value-of select="@title" />&amp;userId=<xsl:value-of select="@userId" />
+			</xsl:attribute>
+			View..
+		</a>
 	</xsl:template>
 	
 	<xsl:template match="user">
