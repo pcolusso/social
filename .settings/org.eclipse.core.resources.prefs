@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/socialapp/soap/client/Article.java=UTF-8
+encoding//src/socialapp/soap/client/Blog.java=UTF-8
+encoding//src/socialapp/soap/client/BlogPortBindingStub.java=UTF-8
+encoding//src/socialapp/soap/client/BlogService.java=UTF-8
+encoding//src/socialapp/soap/client/BlogServiceLocator.java=UTF-8
+encoding//src/socialapp/soap/client/Friend.java=UTF-8
+encoding//src/socialapp/soap/client/IOException.java=UTF-8
+encoding//src/socialapp/soap/client/JAXBException.java=UTF-8
+encoding//src/socialapp/soap/client/StackTraceElement.java=UTF-8
+encoding//src/socialapp/soap/client/User.java=UTF-8
