@@ -21,7 +21,19 @@
 	<friends>
 		<% for (Friend friend : user.getFriends()) { %>
 			<friend name="<%=app.getUsers().getUser(friend.getUserId()).getName()%>" id="<%=friend.getUserId()%>">
-				<accepted><%=app.isFriends(user.getId(), friend.getUserId()) %></accepted>
+				<%
+					int userId = user.getId();
+					int fId = friend.getUserId();
+				
+					if (app.isFriends(userId, fId))
+					{
+						%><accepted></accepted><%
+					} else if (app.isAcceptable(userId, fId)) {
+						%><accept></accept><%
+					} else if (app.isPending(userId, fId)){
+						%><pending></pending><%	
+					}
+				%>
 			</friend>
 		<% } %>
 	</friends>

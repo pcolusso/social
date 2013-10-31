@@ -17,6 +17,8 @@ public class SocialApp {
 	
 	public void setFilePath(String filePath) throws JAXBException, IOException {
 		// Create the unmarshaller
+		this.filePath = filePath;
+		
 		JAXBContext jc = JAXBContext.newInstance(Users.class);
 		Unmarshaller u = jc.createUnmarshaller();
 		 
@@ -31,14 +33,13 @@ public class SocialApp {
 	}
 	
 	public void save() throws IOException, JAXBException
-	{	 
-		//TODO: Fix me!
-		//JAXBContext jc = JAXBContext.newInstance(Users.class);
-		//Marshaller m = jc.createMarshaller();
+	{	
+		JAXBContext jc = JAXBContext.newInstance(Users.class);
+		Marshaller m = jc.createMarshaller();
 		
-		//FileOutputStream fout = new FileOutputStream(filePath);
-		//m.marshal(users, fout);
-		//fout.close();
+		FileOutputStream fout = new FileOutputStream(filePath);
+		m.marshal(users, fout);
+		fout.close();
 	}
 	
 	public Article getArticle(int userId, String title) {
@@ -70,5 +71,36 @@ public class SocialApp {
 		if (!aB.isAccepted() || !bA.isAccepted())
 			return false;
 		return true;
+	}
+	
+	public boolean isPending(int origin, int dest) {
+		User user = users.getUser(origin);
+		User friend = users.getUser(dest);
+		
+		if (user == null || friend == null)
+			return false;
+		
+		Friend userRel = user.getFriend(friend.getId());
+		Friend friendRel = friend.getFriend(user.getId());
+		
+		if (userRel.isAccepted() && !friendRel.isAccepted())
+			return true;
+		return false;
+	}
+	
+	public boolean isAcceptable(int origin, int dest) {
+		User user = users.getUser(origin);
+		User friend = users.getUser(dest);
+		
+		if (user == null || friend == null)
+			return false;
+		
+		Friend userRel = user.getFriend(friend.getId());
+		Friend friendRel = friend.getFriend(user.getId());
+		
+		if (!userRel.isAccepted() && friendRel.isAccepted())
+			return true;
+		
+		return false;
 	}
 }

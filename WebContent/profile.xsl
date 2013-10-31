@@ -68,9 +68,9 @@
 	
 	<xsl:template match="friend">
 		<b><xsl:value-of select="@name" /></b>
-		<xsl:if test="contains(accepted, 'false')">
-			<i> - pending</i>
-		</xsl:if>
+		<xsl:apply-templates select="accept" />
+		<xsl:apply-templates select="accepted" />
+		<xsl:apply-templates select="pending" />
 		<a>
 			<xsl:attribute name="href">
 				delFriend.jsp?id=<xsl:value-of select="@id" />
@@ -79,4 +79,23 @@
 		</a>
 		<br />
 	</xsl:template>
+	
+	<xsl:template match="accept">
+		<i> wants to be Friends!</i>
+		<a>
+			<xsl:attribute name="href">
+				acceptRequest.jsp?fid=<xsl:value-of select="../@id" />
+			</xsl:attribute>
+			Accept! 
+		</a>
+	</xsl:template>
+	
+	<xsl:template match="accepted">
+		<i> is Friends!</i>
+	</xsl:template>
+	
+	<xsl:template match="pending">
+		<i> has been requested!</i>
+	</xsl:template>
+	
 </xsl:stylesheet>
